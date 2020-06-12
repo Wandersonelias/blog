@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+//Banco de dados
+require('./database/database');
 
 //View engine
 app.set('view engine', 'ejs');
