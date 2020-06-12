@@ -1,6 +1,10 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+//Rotas e controller
+const categoriesController = require('./categories/CategoriesController');
+const articlesController = require('./articles/ArticlesController');
+
 //Banco de dados
 require('./database/database');
 
@@ -16,7 +20,8 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
 
-
+app.use("/",categoriesController);
+app.use("/",articlesController);
 app.get("/",(req,res)=>{
     res.render("index");
 });
