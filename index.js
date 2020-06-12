@@ -9,7 +9,7 @@ app.set('view engine', 'ejs');
 
 //Static Files
 
-app.use(express.static('pulic'));
+app.use('/public', express.static('public'));
 
 //body barser
 app.use(bodyParser.urlencoded({extended: false}));
