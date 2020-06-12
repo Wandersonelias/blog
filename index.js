@@ -1,9 +1,13 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+
+//View engine
 app.set('view engine', 'ejs');
 
+//Static Files
 
+app.use(express.static('pulic'));
 
 //body barser
 app.use(bodyParser.urlencoded({extended: false}));
