@@ -1,13 +1,25 @@
 const express = require('express');
 const router = express.Router();
+const Category = require('../categories/Category');
 
 
-router.get('/categories',(req,res)=>{
-    res.send("lorem ispum");
-    console.log("Terror");
+router.get("/admin/categories/new",(req,res)=>{
+        res.render("admin/categories/new");
+
 });
-router.get('/admin/categories/new',(req,res)=>{
-    res.send("lorem ispum");
+
+router.post('/categories/save',(req, res)=>{
+    var title = req.body.title;
+    if(title != undefined){
+        Category.create({
+            title: title,
+            slug: slugfy(title)
+            }).then(()=>{
+            res.render("admin/categories/new");
+        });
+    }else{
+        res.redirect("admin/categories/new");
+    }
 });
 
 

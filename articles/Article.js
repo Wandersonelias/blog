@@ -20,4 +20,6 @@ const Article = connection.define('articles',{
 Category.hasMany(Article);//Uma para muitos
 Article.belongsTo(Category);//Uma para um
 
+
+
 module.exports = Article;
