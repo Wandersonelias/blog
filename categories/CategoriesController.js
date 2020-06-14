@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Category = require('../categories/Category');
-
+const slugify = require('slugify');
 
 router.get("/admin/categories/new",(req,res)=>{
         res.render("admin/categories/new");
@@ -13,7 +13,7 @@ router.post('/categories/save',(req, res)=>{
     if(title != undefined){
         Category.create({
             title: title,
-            slug: slugfy(title)
+            slug: slugify(title)
             }).then(()=>{
             res.render("admin/categories/new");
         });
